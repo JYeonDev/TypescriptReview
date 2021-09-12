@@ -1,36 +1,44 @@
-// union type 타입 여러개 지정가능
-var 회원 = 123;
-회원 = "김종연";
-var 회원들 = [1, 2, 3];
-var 오브젝트 = { a: "123" };
-// any는 어떠한 타입도 들어올수 있다.
-// any를 남발하면 타입스크립트를 사용하는 의미가 없다.
-// any는 타입을 벗겨내는 용도로 사용한다.
-var 이름;
-이름 = 123;
-이름 = true;
-// any와 기능이 동일하다.
-// any보다 안전하다.
-// any보다 엄격하다
-// unknown은 연산자 사용불가
-var 성함;
-성함 = 123;
-성함 = {};
-성함 - 1;
-// union type은 새로운 타입이다.
-// string 타입 + 1 가능
-// number 타입 + 1 가능
-// string | number + 1 불가능
+// 함수의 파라미터 타입지정 가능  리턴값은 파라미터 다음에 지정
+function 함수(x) {
+    return x * 2;
+}
+함수(20);
+// void는 return을 하지않도록 막는다.
+function 함수2(x) {
+    1 + 1;
+}
+// 타입스크립트에서는 지정된 파라미터 입력이 필수이다.
+// ? 를 사용하면 파라미터를 받을 수도 있고 안 받을수도 있게 설정가능하다.
+// ? 는 아무타입 | undefined 와 같다.
+// 오브젝트에서도 마찬가지로 key에 사용가능
+함수(2);
 // 예제 1
-var user = "kim";
-var age = undefined;
-var married = false;
-var 철수 = [user, age, married];
-// 예제2
-var 학교 = {
-    score: [100, 97, 84],
-    teacher: "Phil",
-    friend: "John",
-};
-학교.score[4] = false;
-학교.friend = ["Lee", 학교.teacher];
+function hi(hello) {
+    if (hello) {
+        console.log("안녕" + hello);
+    }
+    else {
+        console.log("이름이 없습니다.");
+    }
+}
+hi("김종연");
+// 예제 2
+function machine(n) {
+    return n.toString().length;
+}
+machine(234);
+// 예제 3
+function 결혼가능하냐(money, house, charm) {
+    var score = 0;
+    score += money;
+    if (house === true) {
+        score += 500;
+    }
+    if (charm === "상") {
+        score += 100;
+    }
+    if (score >= 600) {
+        return "결혼가능";
+    }
+}
+console.log(결혼가능하냐(100, true, "상"));
