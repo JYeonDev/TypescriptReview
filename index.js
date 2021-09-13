@@ -1,23 +1,12 @@
-// Literal types 지정한 값만 들어오게 하여 사용할 수 있다.
-// union 으로도 지정 가능
-var 이름;
-var 접니다;
-// 함수에서 파라미터의 값을 지정가능하다.
-// return 값도 지정가능
-function 함수(a) {
-    return 1;
-}
-function 가위바위보(x) {
-    return ["가위"];
-}
-가위바위보("가위");
-// Literal type의 문제점
-var 자료 = {
+// number 는 return값을 의미한다.
+// 함수타입을 사용하려면 함수표현식을 사용해야한다.
+var 함수 = function () { };
+// object안에 함수 만들기 (메서드)
+var 회원정보 = {
     name: "kim",
+    plusOne: function (a) {
+        return a + 1;
+    },
+    plusTwo: function (number) { return number; },
 };
-function 내함수(a) { }
-// 자료.name은 타입이 string이지만 a: 'kim'은 타입이 'kim'이다
-내함수(자료.name);
-// 해결법 object 만들 때 타입지정 확실히
-// as 문법 사용
-// as const 사용 1. object value 값을 그대로 타입으로 지정해줌 2. 모든 속성들을 readonly로 바꿔준다
+회원정보.plusOne(2);
