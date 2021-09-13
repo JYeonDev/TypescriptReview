@@ -1,53 +1,33 @@
-// 함수의 파라미터 타입지정 가능  리턴값은 파라미터 다음에 지정
-function 함수(x: number): number {
-  return x * 2;
-}
-함수(20);
+// Narrowing  타입이 하나로 정해져 있지 않을 때 사용한다.
+// 대표적인 방법 typeof
 
-// void는 return을 하지않도록 막는다.
-function 함수2(x?: number): void {
-  1 + 1;
-}
-// 타입스크립트에서는 지정된 파라미터 입력이 필수이다.
-// ? 를 사용하면 파라미터를 받을 수도 있고 안 받을수도 있게 설정가능하다.
-// ? 는 아무타입 | undefined 와 같다.
-// 오브젝트에서도 마찬가지로 key에 사용가능
-함수(2);
-
-// 예제 1
-function hi(hello?: string): void {
-  if (hello) {
-    console.log("안녕" + hello);
+function 내함수(x: number | string) {
+  if (typeof x === "string") {
+    return x + "1";
   } else {
-    console.log("이름이 없습니다.");
+    return x + 1;
   }
 }
 
-hi("김종연");
-
-// 예제 2
-function machine(n: string | number): number {
-  return n.toString().length;
-}
-
-machine(234);
-
-// 예제 3
-function 결혼가능하냐(
-  money: number,
-  house: boolean,
-  charm: string
-): string | void {
-  let score: number = 0;
-  score += money;
-  if (house === true) {
-    score += 500;
-  }
-  if (charm === "상") {
-    score += 100;
-  }
-  if (score >= 600) {
-    return "결혼가능";
+function 내함수2(x: number | string) {
+  let array: number[] = [];
+  if (typeof x === "number") {
+    array[0] = x;
   }
 }
-console.log(결혼가능하냐(100, true, "상"));
+
+내함수(123);
+
+// 주의사함!!  if문을 썻으면 끝까지 써야 안전하다. else, else if 안쓰면 에러로 잡아줄 수도
+
+// assertion 문법 (타입 덮어쓰기)
+// assertion 문법의 용도
+// 1. Narrowing 할 때 사용 (union type을 하나로 확정 지을 때 사용
+// 2. 무슨 타입이 들어올지 100% 확실할 때 사용
+// 3. 남이 짠 문법을 수정하거나 왜 타입에러가 발생했는지 모르겠을 때 비상용으로 사용
+
+function 내함수3(x: number | string) {
+  let array: number[] = [];
+  array[0] = x as number;
+  // x 를 number 타입으로 지정한다.
+}
