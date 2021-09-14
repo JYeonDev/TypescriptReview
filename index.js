@@ -1,12 +1,26 @@
-// number 는 return값을 의미한다.
-// 함수타입을 사용하려면 함수표현식을 사용해야한다.
-var 함수 = function () { };
-// object안에 함수 만들기 (메서드)
-var 회원정보 = {
-    name: "kim",
-    plusOne: function (a) {
-        return a + 1;
-    },
-    plusTwo: function (number) { return number; },
-};
-회원정보.plusOne(2);
+// HTML 조작시 narrowing 방법 5개
+// 1.if
+// let 제목 = document.querySelector("#title");
+// if (제목 != null) {
+//   제목.innerHTML = "반가워요";
+// }
+// 2.instanceof
+// let 제목 = document.querySelector("#title");
+// if (제목 instanceof Element) {
+//   제목.innerHTML = "반가워요";
+// }
+// 3. as
+// let 제목 = document.querySelector("#title") as Element;
+// 제목.innerHTML = "반가워요";
+// 4. ?
+var 제목 = document.querySelector("#title");
+if ((제목 === null || 제목 === void 0 ? void 0 : 제목.innerHTML) != undefined) {
+    제목.innerHTML = "반가워요";
+}
+// 5. tsconfig.json 에서  "strictNullChecks": false
+var 링크 = document.querySelector(".link");
+if (링크 instanceof HTMLAnchorElement) {
+    링크.href = "https://kakao.com";
+}
+var 버튼 = document.querySelector("#button");
+버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener("click", function () { });
