@@ -1,29 +1,36 @@
-// never
-// 조건
-// 1. return 값이 없어야한다.
-// 2. 함수실행이 끝나지 않아야 한다.(endpoint가 없어야 한다.)
-// 3.
+// public
+// 모든 자식들이 이용가능
 
-function 함수(): never {
-  throw new Error();
-}
-
-// never 타입 쓰는 법
-// 거의 쓸일이 없다.
-
-// never타입이 등장하는 경우
-// 1. 뭔가 이상한 narrowing
-
-function 함수2(parameter: string) {
-  if (typeof parameter == "string") {
-    console.log(parameter);
-  } else {
-    console.log(parameter);
+class User {
+  public name = "kim";
+  constructor(a) {
+    this.name = a;
   }
 }
 
-// 2. 어떤 함수표현식은 return 타입이 자동으로 never
+let 유저1 = new User("park");
+유저1.name = "안뇽";
 
-let 함수3 = function () {
-  throw new Error();
-};
+// private
+// class 안에서만 수정, 이용가능
+
+class User2 {
+  name: string;
+  private familyName: string = "kim";
+  constructor(a) {
+    this.name = a + this.familyName;
+  }
+  이름변경함수() {
+    this.familyName = "park";
+  }
+}
+let 유저2 = new User2("park");
+console.log(유저2);
+유저2.이름변경함수();
+console.log(유저2);
+
+class Person {
+  constructor(public name: string) {}
+}
+let 자식 = new Person("김");
+console.log(자식);
