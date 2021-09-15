@@ -1,32 +1,29 @@
-function 함수(a: string | undefined) {
-  if (a && typeof a === "string") {
+// never
+// 조건
+// 1. return 값이 없어야한다.
+// 2. 함수실행이 끝나지 않아야 한다.(endpoint가 없어야 한다.)
+// 3.
+
+function 함수(): never {
+  throw new Error();
+}
+
+// never 타입 쓰는 법
+// 거의 쓸일이 없다.
+
+// never타입이 등장하는 경우
+// 1. 뭔가 이상한 narrowing
+
+function 함수2(parameter: string) {
+  if (typeof parameter == "string") {
+    console.log(parameter);
+  } else {
+    console.log(parameter);
   }
 }
 
-// a가 undefined 면 if문 실행 X
-// a가 string 이면 if문 실행 O
+// 2. 어떤 함수표현식은 return 타입이 자동으로 never
 
-type Fish = { swim: string };
-type Bird = { fly: string };
-
-function 함수2(animal: Fish | Bird) {
-  if ("swim" in animal) {
-    animal.swim;
-  }
-}
-
-type Car = {
-  wheel: "4개";
-  color: string;
+let 함수3 = function () {
+  throw new Error();
 };
-
-type Bike = {
-  wheel: "2개";
-  color: string;
-};
-
-function 함수3(x: Car | Bike) {
-  if (x.wheel === "4개") {
-    console.log("x는 Car 타입이다.");
-  }
-}
