@@ -1,11 +1,5 @@
-var Person = /** @class */ (function () {
-    function Person(a) {
-        this.name = a;
-    }
-    Person.prototype.함수 = function (a) {
-        console.log(a);
-    };
-    return Person;
-}());
-var 사람1 = new Person("kim");
-var 사람2 = new Person("jong");
+var 네모 = { color: "red", width: 100 };
+var 학생 = { name: "kim" };
+var 선생 = { name: "kim", age: 20 };
+// type VS interface
+// interface는 중복선인이 가능 type은 중복선언이 불가능
