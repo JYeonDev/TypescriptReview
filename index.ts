@@ -1,23 +1,20 @@
-interface Square {
-  color: string;
-  width: number;
+function 함수(...a: number[] | boolean[]) {
+  console.log(a[2]);
 }
+함수(1, 3, 5, 6, 2, 2);
 
-let 네모: Square = { color: "red", width: 100 };
+let arr = [1, 2, 3];
+let arr2 = [4, 5];
+let arr3 = [...arr, ...arr2];
 
-interface Student {
-  name: string;
+console.log(arr3);
+
+let [변수1, 변수2] = ["안녕", 100];
+
+console.log(변수1);
+
+let { student, age } = { student: true, age: 20 };
+function 함수2({ student, age }) {
+  console.log(student, age);
 }
-
-interface Teacher extends Student {
-  age: number;
-}
-
-let 학생: Student = { name: "kim" };
-let 선생: Teacher = { name: "kim", age: 20 };
-
-type Animal = { name: string };
-type Cat = { age: number } & Animal;
-
-// type VS interface
-// interface는 중복선인이 가능 type은 중복선언이 불가능
+함수2({ student: true, age: 20 });
