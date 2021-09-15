@@ -1,20 +1,32 @@
-function 함수(...a: number[] | boolean[]) {
-  console.log(a[2]);
+function 함수(a: string | undefined) {
+  if (a && typeof a === "string") {
+  }
 }
-함수(1, 3, 5, 6, 2, 2);
 
-let arr = [1, 2, 3];
-let arr2 = [4, 5];
-let arr3 = [...arr, ...arr2];
+// a가 undefined 면 if문 실행 X
+// a가 string 이면 if문 실행 O
 
-console.log(arr3);
+type Fish = { swim: string };
+type Bird = { fly: string };
 
-let [변수1, 변수2] = ["안녕", 100];
-
-console.log(변수1);
-
-let { student, age } = { student: true, age: 20 };
-function 함수2({ student, age }) {
-  console.log(student, age);
+function 함수2(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    animal.swim;
+  }
 }
-함수2({ student: true, age: 20 });
+
+type Car = {
+  wheel: "4개";
+  color: string;
+};
+
+type Bike = {
+  wheel: "2개";
+  color: string;
+};
+
+function 함수3(x: Car | Bike) {
+  if (x.wheel === "4개") {
+    console.log("x는 Car 타입이다.");
+  }
+}
