@@ -1,11 +1,5 @@
-// tuple type 위치별 타입지정
+import { a } from "./data2";
 
-let 멍멍: [string, number, boolean?] = ["dog", 123, true];
+declare let a: number;
 
-function 함수(...x: [number, string]) {
-  console.log(x);
-}
-함수(111, "222");
-
-let arr = [1, 2, 3];
-let arr2: [...number[]] = [4, 5, ...arr];
+console.log(a + 1);
