@@ -1,22 +1,8 @@
-let obj = { name: "kim" };
-Object.keys(obj);
+type Age<T> = T extends string ? string : unknown;
+let a: Age<string>;
 
-interface Person {
-  age: number;
-  name: string;
-}
+type Person<T> = T extends infer R ? string : unknown;
 
-type PersonKeys = keyof Person;
-let a: PersonKeys = "name";
+type 타입추출<T> = T extends (infer R)[] ? R : unknown;
 
-type Car = {
-  color: boolean;
-  model: boolean;
-  price: boolean | number;
-};
-
-type TypeChanger<MyType> = {
-  [key in keyof MyType]: string;
-};
-
-type 새로운타입 = TypeChanger<Car>;
+type a = 타입추출<string[]>;

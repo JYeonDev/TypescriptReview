@@ -1,18 +1,5 @@
-declare let obj: {
-    name: string;
-};
-interface Person {
-    age: number;
-    name: string;
-}
-declare type PersonKeys = keyof Person;
-declare let a: PersonKeys;
-declare type Car = {
-    color: boolean;
-    model: boolean;
-    price: boolean | number;
-};
-declare type TypeChanger<MyType> = {
-    [key in keyof MyType]: string;
-};
-declare type 새로운타입 = TypeChanger<Car>;
+declare type Age<T> = T extends string ? string : unknown;
+declare let a: Age<string>;
+declare type Person<T> = T extends infer R ? string : unknown;
+declare type 타입추출<T> = T extends (infer R)[] ? R : unknown;
+declare type a = 타입추출<string[]>;
