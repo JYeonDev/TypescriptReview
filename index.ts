@@ -1,5 +1,3 @@
-import { a } from "./data2";
+import { Age } from "./test.d";
 
-declare let a: number;
-
-console.log(a + 1);
+let 이름: string = "김";
