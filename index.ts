@@ -1,3 +1,21 @@
-import { Age } from "./test.d";
+interface StringOnly {
+  [key: string]: string;
+}
 
-let 이름: string = "김";
+let user = {
+  name: "kim",
+  age: "20",
+  location: "seoul",
+};
+
+interface MyType {
+  "font-size": MyType | number;
+}
+
+let css: MyType = {
+  "font-size": {
+    "font-size": {
+      "font-size": 14,
+    },
+  },
+};

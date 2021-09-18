@@ -1,3 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var 이름 = "김";
+var user = {
+    name: "kim",
+    age: "20",
+    location: "seoul",
+};
+var css = {
+    "font-size": {
+        "font-size": {
+            "font-size": 14,
+        },
+    },
+};
