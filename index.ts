@@ -1,21 +1,22 @@
-interface StringOnly {
-  [key: string]: string;
+let obj = { name: "kim" };
+Object.keys(obj);
+
+interface Person {
+  age: number;
+  name: string;
 }
 
-let user = {
-  name: "kim",
-  age: "20",
-  location: "seoul",
+type PersonKeys = keyof Person;
+let a: PersonKeys = "name";
+
+type Car = {
+  color: boolean;
+  model: boolean;
+  price: boolean | number;
 };
 
-interface MyType {
-  "font-size": MyType | number;
-}
-
-let css: MyType = {
-  "font-size": {
-    "font-size": {
-      "font-size": 14,
-    },
-  },
+type TypeChanger<MyType> = {
+  [key in keyof MyType]: string;
 };
+
+type 새로운타입 = TypeChanger<Car>;

@@ -1,12 +1,3 @@
-var user = {
-    name: "kim",
-    age: "20",
-    location: "seoul",
-};
-var css = {
-    "font-size": {
-        "font-size": {
-            "font-size": 14,
-        },
-    },
-};
+var obj = { name: "kim" };
+Object.keys(obj);
+var a = "name";

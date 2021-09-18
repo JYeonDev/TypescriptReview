@@ -1,12 +1,18 @@
-interface StringOnly {
-    [key: string]: string;
-}
-declare let user: {
+declare let obj: {
     name: string;
-    age: string;
-    location: string;
 };
-interface MyType {
-    "font-size": MyType | number;
+interface Person {
+    age: number;
+    name: string;
 }
-declare let css: MyType;
+declare type PersonKeys = keyof Person;
+declare let a: PersonKeys;
+declare type Car = {
+    color: boolean;
+    model: boolean;
+    price: boolean | number;
+};
+declare type TypeChanger<MyType> = {
+    [key in keyof MyType]: string;
+};
+declare type 새로운타입 = TypeChanger<Car>;
